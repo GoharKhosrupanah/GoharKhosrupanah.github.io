@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Projects</title>
+  <script>
+    let currentProject = 0;
+    function showProject(index) {
+      let projects = document.querySelectorAll(".project");
+      projects.forEach((project, i) => {
+        project.style.display = i === index ? "block" : "none";
+      });
+    }
+
+    function nextProject() {
+      let projects = document.querySelectorAll(".project");
+      currentProject = (currentProject + 1) % projects.length;
+      showProject(currentProject);
+    }
+
+    function prevProject() {
+      let projects = document.querySelectorAll(".project");
+      currentProject = (currentProject - 1 + projects.length) % projects.length;
+      showProject(currentProject);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      showProject(currentProject);
+    });
+  </script>
+</head>
+<body>
+
+  <header class="navbar">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+   
+  </header>
+  <h1 class="page-title">My Projects</h1>
+  <main class="projects-wrapper">
+     
+    <section id="projects-container">
+
+      <div class="project">
+        <h2>Personal Website</h2>
+        <p><strong>Completed:</strong> 2024</p>
+        <p>A responsive personal portfolio website showcasing my skills and projects.</p>
+        <p><strong>Technologies Used:</strong> HTML, CSS, JavaScript</p>
+        
+      </div>
+
+      <div class="project">
+        <h2>Database for Guitar Management</h2>
+        <p><strong>Completed:</strong> 2024</p>
+        <p>MySQL-based database system for managing guitar inventory and customer records.</p>
+        <p><strong>Technologies Used:</strong> MySQL, Microsoft Access</p>
+       
+      </div>
+
+      <div class="project">
+
+        
+        <h2>Task Management Software</h2>
+<p><strong>Completed:</strong> 2025</p>
+<p>Web-based application with form validation and task operations using JavaScript and PHP.</p>
+<p><strong>Technologies Used:</strong> JavaScript, PHP, HTML, CSS</p>
+
+        <img src="taskMPic.png" alt="task management picture" />
+      </div>
+    </section>
+
+    <div class="buttons-container">
+      <button class="fancy-button" onclick="prevProject()">❮ Previous</button>
+      <button class="fancy-button" onclick="nextProject()">Next ❯</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Gohar Khosrupanah</p>
+  </footer>
+
+</body>
+</html>
